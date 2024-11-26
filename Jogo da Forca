@@ -1,0 +1,1138 @@
+print("\n\tJOGO DA FORCA\t\n")
+
+while True:
+    print("Bem vindo(a) ao Jogo da Forca!\n")
+    print("\tMENU INICIAL\n [1] Iniciar\n [2] Regras\n [3] Créditos\n\n [4] Sair\n")
+
+    opcao = input("Digite a opção desejada: ")
+    print()
+
+    if opcao == "1":
+        dificuldade = 0
+        while dificuldade != 5:
+            print("\tMENU DE DIFICULDADES\n [1] Fácil\n [2] Normal\n [3] Difícil\n [4] Extrema\n\n [5] Voltar ao menu inicial\n")
+            dificuldade = input("Digite a dificuldade desejada: ")
+            print()
+
+            if dificuldade == "1":
+                print("Você selecionou a dificuldade fácil!")
+                confirm = input("Começar? ([1] Sim / [2] Não): ")
+                print()
+
+                if confirm == "1":
+                    score = 0
+                    p1 = "bola"
+
+                    # 1° PALAVRA (FÁCIL)
+                    print("\tPrimeira palavra")
+                    estado1 = ["_"] * len(p1)
+                    for letra in estado1:
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 6
+
+                    while tentativas > 0 and "_" in estado1:
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p1:
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p1)):
+                                if p1[a] == adivinhar:
+                                    estado1[a] = adivinhar
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 5:
+                                print("\t\t\t\t O")
+                            elif tentativas == 4:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado1:
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado1:
+                        print("\nVocê acertou a palavra!")
+                        score += 50
+                        print(f"Score: {score}")
+                        print()
+                    
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p1}")
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+                    
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue  
+
+
+                    # 2° PALAVRA (FÁCIL)
+                    p2 = "tela"
+                    print("\tSegunda palavra")  
+                    estado2 = ["_"] * len(p2)  
+                    for letra in estado2:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 6
+
+                    while tentativas > 0 and "_" in estado2:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p2:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p2)):  
+                                if p2[a] == adivinhar:  
+                                    estado2[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 5:
+                                print("\t\t\t\t O")
+                            elif tentativas == 4:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado2:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado2: 
+                        print("\nVocê acertou a palavra!")
+                        score += 50
+                        print(f"Score: {score}")
+                        print()
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p2}")  
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue 
+
+                    # 3° PALAVRA (FÁCIL)
+                    p3 = "rico"
+                    print("\tTerceira palavra")  
+                    estado3 = ["_"] * len(p3)  
+                    for letra in estado3:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 6
+
+                    while tentativas > 0 and "_" in estado3:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p3:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p3)):  
+                                if p3[a] == adivinhar:  
+                                    estado3[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 5:
+                                print("\t\t\t\t O")
+                            elif tentativas == 4:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado3:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado3:
+                        print()
+                        print("\tRESULTADO")
+                        score += 50
+                        if score == 150:
+                            print("\nParabéns, você acertou todas as palavras!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 100:
+                            print("\nVocê acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 50:
+                            print("\nVocê acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p3}") 
+                        score += 0
+                        if score == 100:
+                            print("\nVocê acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 50:
+                            print("\nVocê acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 0:
+                            print("\nVocê não acertou nenhuma palavra... Mas não desista! Tente novamente!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    retorno = ""
+                    while retorno != "1" and retorno != "2":
+                        retorno = input("\nRetornar em: [1] Menu de Dificuldades / [2] Menu Inicial: ")
+                        print()
+                        if retorno == "1":
+                            break
+                        if retorno == "2":
+                            dificuldade = "5"
+                            break
+                        else:
+                            print("Opção inválida, tente novamente.")
+                    if retorno == "2":
+                        break  
+
+                elif confirm == "2":
+                    print("Retornando ao Menu de Dificuldades!")
+                    print()
+                else:
+                    print("Opção inválida, tente novamente.")
+                    print()
+
+            elif dificuldade == "2":
+                print("Você selecionou a dificuldade normal!")
+                confirm = input("Começar? ([1] Sim / [2] Não): ")
+                print()
+
+                if confirm == "1":
+                    score = 0
+
+                    # 1° PALAVRA (NORMAL)
+                    p1 = "amigo"
+                    print("\tPrimeira palavra")
+                    estado1 = ["_"] * len(p1)
+                    for letra in estado1:
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 5
+
+                    while tentativas > 0 and "_" in estado1:
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p1:
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p1)):
+                                if p1[a] == adivinhar:
+                                    estado1[a] = adivinhar
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 4:
+                                print("\t\t\t\t O")
+                            elif tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado1:
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado1:
+                        print("\nVocê acertou a palavra!")
+                        score += 100
+                        print(f"Score: {score}")
+                        print()
+                    
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p1}")
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue  
+
+
+                    # 2° PALAVRA (NORMAL)
+                    p2 = "tempo"
+                    print("\tSegunda palavra")  
+                    estado2 = ["_"] * len(p2)  
+                    for letra in estado2:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 5
+
+                    while tentativas > 0 and "_" in estado2:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p2:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p2)):  
+                                if p2[a] == adivinhar:  
+                                    estado2[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 4:
+                                print("\t\t\t\t O")
+                            elif tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado2:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado2: 
+                        print("\nVocê acertou a palavra!")
+                        score += 100
+                        print(f"Score: {score}")
+                        print()
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p2}")  
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+                    
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue  
+
+                    # 3° PALAVRA (NORMAL)
+                    p3 = "feliz"
+                    print("\tTerceira palavra")  
+                    estado3 = ["_"] * len(p3)  
+                    for letra in estado3:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 5
+
+                    while tentativas > 0 and "_" in estado3:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ("a" <= adivinhar <= "z"):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p3:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p3)):  
+                                if p3[a] == adivinhar:  
+                                    estado3[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 4:
+                                print("\t\t\t\t O")
+                            elif tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado3:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado3:
+                        print()
+                        print("\tRESULTADO")
+                        score += 100
+                        if score == 300:
+                            print("\nParabéns, você acertou todas as palavras!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 200:
+                            print("\nVocê acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 100:
+                            print("\nVocê acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p3}") 
+                        score -= 0
+                        if score == 200:
+                            print("\nVocê acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 100:
+                            print("\nVocê acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 0:
+                            print("\nVocê não acertou nenhuma palavra... Mas não desista! Tente novamente!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    retorno = ""
+                    while retorno != "1" and retorno != "2":
+                        retorno = input("\nRetornar em: [1] Menu de Dificuldades / [2] Menu Inicial: ")
+                        print()
+                        if retorno == "1":
+                            break
+                        if retorno == "2":
+                            dificuldade = "5"
+                            break
+                        else:
+                            print("Opção inválida, tente novamente.")
+                    if retorno == "2":
+                        break  
+
+                elif confirm == "2":
+                    print("Retornando ao Menu de Dificuldades!")
+                    print()
+                else:
+                    print("Opção inválida, tente novamente.")
+                    print()
+
+            elif dificuldade == "3":
+                print("Você selecionou a dificuldade difícil!")
+                confirm = input("Começar? ([1] Sim / [2] Não): ")
+                print()
+
+                if confirm == "1":
+                    score = 0
+
+                    # 1° PALAVRA (DIFÍCIL)
+                    p1 = "esfera"
+                    print("\tPrimeira palavra")
+                    estado1 = ["_"] * len(p1)
+                    for letra in estado1:
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 4
+
+                    while tentativas > 0 and "_" in estado1:
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p1:
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p1)):
+                                if p1[a] == adivinhar:
+                                    estado1[a] = adivinhar
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado1:
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado1:
+                        print("\nVocê acertou a palavra!")
+                        score += 250
+                        print(f"Score: {score}")
+                        print()
+                    
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p1}")
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue  
+
+                    # 2° PALAVRA (DIFÍCIL)
+                    p2 = "contato"
+                    print("\tSegunda palavra")  
+                    estado2 = ["_"] * len(p2)  
+                    for letra in estado2:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 4
+
+                    while tentativas > 0 and "_" in estado2:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p2:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p2)):  
+                                if p2[a] == adivinhar:  
+                                    estado2[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado2:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado2:
+                        print("\nVocê acertou a palavra!")
+                        score += 250
+                        print(f"Score: {score}")
+                        print()
+                    
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p2}")
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue
+
+                    # 3° PALAVRA (DIFÍCIL)
+                    p3 = "estilo"
+                    print("\tTerceira palavra")  
+                    estado3 = ["_"] * len(p3)  
+                    for letra in estado3:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 4
+
+                    while tentativas > 0 and "_" in estado3:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p3:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p3)):  
+                                if p3[a] == adivinhar:  
+                                    estado3[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 3:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t |")
+                            elif tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")                          
+
+                        for letra in estado3:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado3:
+                        print()
+                        print("\tRESULTADO")
+                        score += 250
+                        if score == 750:
+                            print("Parabéns, você acertou todas as palavras!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 500:
+                            print("Você acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 250:
+                            print("Você acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p3}") 
+                        score -= 0
+                        if score == 500:
+                            print("\nVocê acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 250:
+                            print("\nVocê acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 0:
+                            print("\nVocê não acertou nenhuma palavra... Mas não desista! Tente novamente!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    retorno = ""
+                    while retorno != "1" and retorno != "2":
+                        retorno = input("\nRetornar em: [1] Menu de Dificuldades / [2] Menu Inicial: ")
+                        print()
+                        if retorno == "1":
+                            break
+                        if retorno == "2":
+                            dificuldade = "5"
+                            break
+                        else:
+                            print("Opção inválida, tente novamente.")
+                    if retorno == "2":
+                        break  
+
+                elif confirm == "2":
+                    print("Retornando ao Menu de Dificuldades!")
+                    print()
+                else:
+                    print("Opção inválida, tente novamente.")
+                    print()
+
+            elif dificuldade == "4":
+                print("Você selecionou a dificuldade extrema!")
+                confirm = input("Começar? ([1] Sim / [2] Não): ")
+                print()
+
+                if confirm == "1":
+                    score = 0
+
+                    # 1° PALAVRA (EXTREMA)
+                    p1 = "conforto"
+                    print("\tPrimeira palavra")
+                    estado1 = ["_"] * len(p1)
+                    for letra in estado1:
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 3
+
+                    while tentativas > 0 and "_" in estado1:
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p1:
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p1)):
+                                if p1[a] == adivinhar:
+                                    estado1[a] = adivinhar
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado1:
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado1:
+                        print("\nVocê acertou a palavra!")
+                        score += 500
+                        print(f"Score: {score}")
+                        print()
+                    
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p1}")
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Opção inválida, tente novamente.")
+
+                    if voltar == "2":
+                        continue  
+
+
+                    # 2° PALAVRA (EXTREMA)
+                    p2 = "catedral"
+                    print("\tSegunda palavra")  
+                    estado2 = ["_"] * len(p2)  
+                    for letra in estado2:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 3
+
+                    while tentativas > 0 and "_" in estado2:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+                    
+                        if adivinhar in p2:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p2)):  
+                                if p2[a] == adivinhar:  
+                                    estado2[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")
+
+                        for letra in estado2:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado2: 
+                        print("\nVocê acertou a palavra!")
+                        score += 500
+                        print(f"Score: {score}")
+                        print()
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p2}")  
+                        score -= 0
+                        print(f"Score: {score}")
+                        print()
+                    
+                    voltar = ""
+                    while voltar != "1" and voltar != "2":  
+                        voltar = input("Deseja continuar para a próxima palavra ([1] Sim / [2] Não): ")
+                        print()
+
+                        if voltar != "1" and voltar != "2":  
+                            print("Tente novamente.")
+
+                    if voltar == "2":
+                        continue  
+
+                    # 3° PALAVRA (EXTREMA)
+                    p3 = "bastidor"
+                    print("\tTerceira palavra")  
+                    estado3 = ["_"] * len(p3)  
+                    for letra in estado3:  
+                        print(letra, end=" ")
+                    print()
+
+                    tentativas = 3
+
+                    while tentativas > 0 and "_" in estado3:  
+                        adivinhar = input("Insira uma letra: ").lower()
+                        print()
+                        if len(adivinhar) != 1 or not ('a' <= adivinhar <= 'z'):
+                            print("Opção Inválida! Digite apenas UMA letra de A a Z.")
+                            continue
+
+                        if adivinhar in p3:  
+                            print("Você acertou!")
+                            print()
+                            for a in range(len(p3)):  
+                                if p3[a] == adivinhar:  
+                                    estado3[a] = adivinhar  
+                        else:
+                            print("Letra incorreta!\n")
+                            print()
+                            tentativas -= 1
+
+                            print("\t\t\t--------")
+                            if tentativas == 2:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                            elif tentativas == 1:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/")
+                            elif tentativas == 0:
+                                print("\t\t\t\t O")
+                                print("\t\t\t\t/|\\")
+                                print("\t\t\t\t/\\")
+
+                                print("Enforcado!")                        
+
+                        for letra in estado3:  
+                            print(letra, end=" ")
+                        print()
+                        print(f"Tentativas restantes: {tentativas}")
+
+                    if "_" not in estado3:
+                        print()
+                        print("\tRESULTADO")
+                        score += 500
+                        if score == 1500:
+                            print("Parabéns, você acertou todas as palavras!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 1000:
+                            print("Você acertou 2/3 das palavras! Foi quase hein?")
+                        print(f"Score final: {score}")
+                        print()
+                        if score == 500:
+                            print("Você acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+
+                    else:
+                        print(f"\nVocê perdeu! A palavra era: {p3}") 
+                        score -= 0
+                        if score == 1000:
+                            print("Você acertou 2/3 das palavras! Foi quase hein?")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 500:
+                            print("Você acertou 1/3 das palavras! Mais sorte da próxima vez!")
+                            print(f"Score final: {score}")
+                            print()
+                        if score == 0:
+                            print("Você não acertou nenhuma palavra... Mas não desista! Tente novamente!")
+
+                    retorno = ""
+                    while retorno != "1" and retorno != "2":
+                        retorno = input("\nRetornar em: [1] Menu de Dificuldades / [2] Menu Inicial: ")
+                        print()
+                        if retorno == "1":
+                            break
+                        if retorno == "2":
+                            dificuldade = "5"
+                            break
+                        else:
+                            print("Opção inválida, tente novamente.")
+                    if retorno == "2":
+                        break  
+
+                elif confirm == "2":
+                    print("Retornando ao Menu de Dificuldades!")
+                    print()
+                else:
+                    print("Opção inválida, tente novamente.")
+                    print()
+
+            elif dificuldade == "5":
+                print("Retornando ao menu inicial!\n")
+                break
+
+            else:
+                print("Opção inválida, tente novamente.\n")
+
+    elif opcao == "2":
+        print("\tREGRAS DO JOGO")
+        print("Início de jogo\n [1] Inicia o jogo.\n [2] Mostra as regras do jogo.\n [3] Mostra os créditos do jogo.\n [4] Finaliza o jogo.\n")
+        print("Escolha de dificuldade\n [1] Modo Fácil: Contém 3 palavras de 4 letras com 6 tentativas.\n [2] Modo Normal: Contém 3 palavras de 5 letras com 5 tentativas.\n [3] Modo Difícil: Contém 3 palavras de 6 letras com 4 tentativas.\n [4] Modo Extremo: Contém 3 palavras de 8 letras com 3 tentativas.\n")
+        print("Como funciona\n O jogador deve adivinhar a palavra secreta, uma letra por vez.\n A palavra secreta aparece como uma sequência de underscores (ex: _ _ _ _).")
+        print(" O jogador começa com um determinado número de tentativas (representadas pela forca) dependendo da dificuldade escolhida.\n Cada erro (letra incorreta) faz com que o desenho da forca seja incrementado, começando com o desenho da cabeça, corpo, braços e pernas.\n Se as tentativas chegarem a 0, o jogador perde e o jogo será iniciado com a próxima palavra ou finalizado se chegar à terceira palavra.")
+        print(" O score varia de acordo com os acertos e erros do jogador, também depende da dificuldade escolhida do jogador. \n")
+        print("Score\n No Modo Fácil, o jogador recebe 50 pontos a cada acerto, e 0 pontos a cada erro.\n No Modo Normal, o jogador recebe 100 pontos a cada acerto, e 0 pontos a cada erro.\n No Modo Difícil, o jogador recebe 250 pontos a cada acerto, e 0 pontos a cada erro.\n No Modo Extremo, o jogador recebe 500 pontos a cada acerto, e 0 pontos a cada erro.\n")
+        print("Vitória\n O jogador vence se conseguir adivinhar todas as letras da palavra antes que o número de tentativas acabe.\n O jogo mostra a mensagem de vitória e a pontuação final.\n")
+        print("Derrota\n O jogador perde se não conseguir atingir a pontuação total no score, ou seja, caso não acerte as 3 palavras da dificuldade escolhida.\n")
+
+        continuar = True
+
+        while continuar:
+            print("\tDeseja voltar?")
+            print(" [1] Voltar ao menu inicial")
+            print()
+
+            voltar = input("Digite a opção desejada: ")
+            print()
+
+            if voltar == "1":
+                print("Retornando ao menu inicial!\n")
+                break
+
+            else:
+                print("Opção inválida, tente novamente.\n")
+
+    elif opcao == "3":
+        print("\tCRÉDITOS DO JOGO")
+        print("Diretora Criativo: Luana Cabral Hashimoto\nProdutora Executivo: Luana Cabral Hashimoto\nDesigner de Jogos: Luana Cabral Hashimoto\nProgramadora: Luana Cabral Hashimoto\nArtista: Luana Cabral Hashimoto")
+        print("Modeladora 2D: Luana Cabral Hashimoto\nEngenheira de Software: Luana Cabral Hashimoto\nDesigner de Níveis: Luana Cabral Hashimoto")
+        print("Gerente de Projeto: Luana Cabral Hashimoto\nEspecialista em Interface de Usuário (UI): Luana Cabral Hashimoto\nEspecialista em Experiência do Usuário (UX): Luana Cabral Hashimoto")
+        print("Localizadora de Conteúdo: Luana Cabral Hashimoto\nConsultora Técnico: Luana Cabral Hashimoto\nCoordenadora de Equipe: Luana Cabral Hashimoto\nEspecialista em Marketing: Luana Cabral Hashimoto\nAssistente de Produção: Luana Cabral Hashimoto\n")
+        print("\tTesters\nLuana Cabral Hashimoto\nRamon Vitor de Seixas Lopes\nJoão Mendes da Silva\nVitor Hugo da Silva (VH)\nJorge Natalino Zenun\nVitor Willian Peneluppi Pinto\n")
+        print("Agradeço por ter jogado!")
+        print()
+
+        continuar = True
+
+        while continuar:
+            print("\tDeseja voltar?")
+            print(" [1] Voltar ao menu inicial")
+            print()
+
+            voltar = input("Digite a opção desejada: ")
+            print()
+
+            if voltar == "1":
+                print("Retornando ao menu inicial!\n")
+                break
+
+            else:
+                print("Opção inválida, tente novamente.\n")
+
+    elif opcao == "4":
+        print("Jogo finalizado! Até mais!\n")
+        break
+
+    else:
+        print("Opção inválida, tente novamente.\n")
