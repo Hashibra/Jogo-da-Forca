@@ -640,7 +640,7 @@ while True:
                         continue  
 
                     # 2° PALAVRA (DIFÍCIL)
-                    p2 = "contato"
+                    p2 = "cidade"
                     print("\tSegunda palavra")  
                     estado2 = ["_"] * len(p2)  
                     for letra in estado2:  
