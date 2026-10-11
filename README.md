@@ -1,5 +1,5 @@
 ## JOGO DA FORCA
-Trabalho realizado para a Discilpina **Lógica de Programação**.
+Trabalho realizado para a Disciplina **Lógica de Programação**.
 
 **Objetivo**: Criar um jogo da forca
 
